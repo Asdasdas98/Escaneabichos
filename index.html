@@ -110,7 +110,7 @@
             products.forEach(p => {
                 if(!p) return;
                 const additives = p.additives_tags || [];
-                const found = additives.filter(a => a.includes('e120') || a.includes('e904'));
+                const found = additives.filter(a => a.includes('e120') || a.includes('e904') || a.includes('Acheta domesticus') || a.includes('Tenebrio molitor') || a.includes('Locusta migratoria') || a.includes('Alphitobius diaperinus'));
                 const isDanger = found.length > 0;
 
                 const div = document.createElement('div');
@@ -119,13 +119,13 @@
                     <img src="${p.image_small_url || ''}" onerror="this.style.display='none'">
                     <div>
                         <strong>${p.product_name || 'Desconocido'}</strong><br>
-                        <small>${isDanger ? ':( CONTIENE: ' + found.join(', ').toUpperCase().replace(/EN:/g,'') : ':D Libre de E-120 o E-904!'}</small>
+                        <small>${isDanger ? ':( CONTIENE: ' + found.join(', ').toUpperCase().replace(/EN:/g,'') : ':D Libre de bichos!'}</small>
                     </div>
                 `;
                 resultsDiv.appendChild(div);
             });
         } catch (e) {
-            resultsDiv.innerHTML = "Error de conexión. Revisa tu conexión a Internet.";
+            resultsDiv.innerHTML = "Error de conexión. Revise su conexión a Internet.";
         }
     }
 </script>
